@@ -81,7 +81,7 @@ def get_head_position(file_path):
             ["/neuro/bin/util/show_fiff", "-vt222", file_path],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            universal_newlines=True,  # Use 'universal_newlines' instead of 'text'
+            universal_newlines=True,  
         )
         last_line = result.stdout.strip().splitlines()[-1]
         x, y, z = map(float, last_line.split()[:3])

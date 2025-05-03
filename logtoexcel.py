@@ -59,12 +59,7 @@ def collect_response_codes_from_file(log_file):
                         else:
                             response_numbers.append(responses[-1])  # Take the last response
 
-                    # If there are two responses, check if the second one is 9
-                    #if len(responses) > 1:
-                     #   if responses[1] == '9':
-                      #      response_numbers.append(responses[0])  # Take the first response
-                       # else:
-                        #    response_numbers.append(responses[1])  # Take the second response
+         
                     elif responses:
                         response_numbers.append(responses[0])  # Take the first response if only one exists
                         

@@ -31,21 +31,21 @@ for file_name in os.listdir(input_dir):
         if file_number in file_numbers:
             file_path = os.path.join(input_dir, file_name)
 
-            # Load your raw data
+            # Load raw data
             raw = mne.io.read_raw_fif(file_path, preload=True)
 
-            # Create events from annotations (trigger codes) in your data
+            # Create events from annotations (trigger codes) in data
             events = mne.find_events(raw, stim_channel='STI101')
 
             # Print unique event codes to check for validity
             print(f"Unique event codes in {file_name}:", np.unique(events[:, 2]))
 
-            # Define the event ids for each video category you want to extract
+            # Define the event ids for each video category
             video_event_ids = [1, 2, 3, 4, 5]  # Happy, Cont, Anx, Sad, Neut
             epochs_dict = {}
 
             # Extract the base file name (without '.video' part)
-            base_file_name = file_name.replace('_video.fif', '')  # Adjust to remove the '.video' part if needed
+            base_file_name = file_name.replace('_video.fif', '')  
 
             # Iterate through events to create segments
             for video_trigger in video_event_ids:
